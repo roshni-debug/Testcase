@@ -2,64 +2,64 @@
 <testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-06T09:43:11 IST" name="Default suite" finished-at="2026-01-06T09:43:38 IST" duration-ms="26970">
+  <suite started-at="2026-01-06T11:36:45 IST" name="Default suite" finished-at="2026-01-06T11:37:08 IST" duration-ms="22852">
     <groups>
     </groups>
-    <test started-at="2026-01-06T09:43:11 IST" name="Default test" finished-at="2026-01-06T09:43:38 IST" duration-ms="26970">
+    <test started-at="2026-01-06T11:36:45 IST" name="Default test" finished-at="2026-01-06T11:37:08 IST" duration-ms="22852">
       <class name="Test.FundsWithdrawal">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:11 IST" name="setup" finished-at="2026-01-06T09:43:14 IST" duration-ms="2939" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:45 IST" name="setup" finished-at="2026-01-06T11:36:48 IST" duration-ms="3353" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testSetMobileNumber()[pri:1, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:14 IST" name="testSetMobileNumber" finished-at="2026-01-06T09:43:14 IST" duration-ms="98" status="PASS">
+        <test-method signature="testSetMobileNumber()[pri:1, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:48 IST" name="testSetMobileNumber" finished-at="2026-01-06T11:36:48 IST" duration-ms="27" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetMobileNumber -->
-        <test-method signature="testOpenDigielvApplication()[pri:2, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:14 IST" name="testOpenDigielvApplication" finished-at="2026-01-06T09:43:18 IST" depends-on-methods="Test.FundsWithdrawal.testSetMobileNumber" duration-ms="3376" status="PASS">
+        <test-method signature="testOpenDigielvApplication()[pri:2, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:48 IST" name="testOpenDigielvApplication" finished-at="2026-01-06T11:36:52 IST" depends-on-methods="Test.FundsWithdrawal.testSetMobileNumber" duration-ms="3844" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testOpenDigielvApplication -->
-        <test-method signature="testClickLoginRegister()[pri:3, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:18 IST" name="testClickLoginRegister" finished-at="2026-01-06T09:43:18 IST" depends-on-methods="Test.FundsWithdrawal.testOpenDigielvApplication" duration-ms="465" status="PASS">
+        <test-method signature="testClickLoginRegister()[pri:3, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:52 IST" name="testClickLoginRegister" finished-at="2026-01-06T11:36:52 IST" depends-on-methods="Test.FundsWithdrawal.testOpenDigielvApplication" duration-ms="399" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testClickLoginRegister -->
-        <test-method signature="testEnterMobileAndClickLogin()[pri:4, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:18 IST" name="testEnterMobileAndClickLogin" finished-at="2026-01-06T09:43:19 IST" depends-on-methods="Test.FundsWithdrawal.testClickLoginRegister" duration-ms="898" status="PASS">
+        <test-method signature="testEnterMobileAndClickLogin()[pri:4, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:53 IST" name="testEnterMobileAndClickLogin" finished-at="2026-01-06T11:36:53 IST" depends-on-methods="Test.FundsWithdrawal.testClickLoginRegister" duration-ms="665" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnterMobileAndClickLogin -->
-        <test-method signature="testFetchOtpFromDB()[pri:5, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:19 IST" name="testFetchOtpFromDB" finished-at="2026-01-06T09:43:22 IST" depends-on-methods="Test.FundsWithdrawal.testEnterMobileAndClickLogin" duration-ms="2299" status="PASS">
+        <test-method signature="testFetchOtpFromDB()[pri:5, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:53 IST" name="testFetchOtpFromDB" finished-at="2026-01-06T11:36:54 IST" depends-on-methods="Test.FundsWithdrawal.testEnterMobileAndClickLogin" duration-ms="735" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFetchOtpFromDB -->
-        <test-method signature="testEnterOtpInputs()[pri:6, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:22 IST" name="testEnterOtpInputs" finished-at="2026-01-06T09:43:27 IST" depends-on-methods="Test.FundsWithdrawal.testFetchOtpFromDB" duration-ms="5101" status="PASS">
+        <test-method signature="testEnterOtpInputs()[pri:6, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:54 IST" name="testEnterOtpInputs" finished-at="2026-01-06T11:36:58 IST" depends-on-methods="Test.FundsWithdrawal.testFetchOtpFromDB" duration-ms="4557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnterOtpInputs -->
-        <test-method signature="testHandleKycPopupIfPresent()[pri:7, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:27 IST" name="testHandleKycPopupIfPresent" finished-at="2026-01-06T09:43:32 IST" depends-on-methods="Test.FundsWithdrawal.testEnterOtpInputs" duration-ms="5386" status="PASS">
+        <test-method signature="testHandleKycPopupIfPresent()[pri:7, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:59 IST" name="testHandleKycPopupIfPresent" finished-at="2026-01-06T11:37:04 IST" depends-on-methods="Test.FundsWithdrawal.testEnterOtpInputs" duration-ms="5423" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testHandleKycPopupIfPresent -->
-        <test-method signature="testOpenFundsWithdrawal()[pri:8, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:32 IST" name="testOpenFundsWithdrawal" finished-at="2026-01-06T09:43:32 IST" depends-on-methods="Test.FundsWithdrawal.testHandleKycPopupIfPresent" duration-ms="263" status="PASS">
+        <test-method signature="testOpenFundsWithdrawal()[pri:8, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:04 IST" name="testOpenFundsWithdrawal" finished-at="2026-01-06T11:37:04 IST" depends-on-methods="Test.FundsWithdrawal.testHandleKycPopupIfPresent" duration-ms="185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testOpenFundsWithdrawal -->
-        <test-method signature="testWithdrawFundsClick()[pri:9, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:32 IST" name="testWithdrawFundsClick" finished-at="2026-01-06T09:43:33 IST" depends-on-methods="Test.FundsWithdrawal.testOpenFundsWithdrawal" duration-ms="611" status="PASS">
+        <test-method signature="testWithdrawFundsClick()[pri:9, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:04 IST" name="testWithdrawFundsClick" finished-at="2026-01-06T11:37:05 IST" depends-on-methods="Test.FundsWithdrawal.testOpenFundsWithdrawal" duration-ms="696" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testWithdrawFundsClick -->
-        <test-method signature="testEnterAmountAndRemarks()[pri:10, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:33 IST" name="testEnterAmountAndRemarks" finished-at="2026-01-06T09:43:36 IST" depends-on-methods="Test.FundsWithdrawal.testWithdrawFundsClick" duration-ms="2622" status="PASS">
+        <test-method signature="testEnterAmountAndRemarks()[pri:10, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:05 IST" name="testEnterAmountAndRemarks" finished-at="2026-01-06T11:37:06 IST" depends-on-methods="Test.FundsWithdrawal.testWithdrawFundsClick" duration-ms="1193" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnterAmountAndRemarks -->
-        <test-method signature="testClickWithdrawButton()[pri:11, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:36 IST" name="testClickWithdrawButton" finished-at="2026-01-06T09:43:36 IST" depends-on-methods="Test.FundsWithdrawal.testEnterAmountAndRemarks" duration-ms="684" status="PASS">
+        <test-method signature="testClickWithdrawButton()[pri:11, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:06 IST" name="testClickWithdrawButton" finished-at="2026-01-06T11:37:06 IST" depends-on-methods="Test.FundsWithdrawal.testEnterAmountAndRemarks" duration-ms="167" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testClickWithdrawButton -->
-        <test-method signature="testClickContinueOnModal()[pri:12, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:36 IST" name="testClickContinueOnModal" finished-at="2026-01-06T09:43:38 IST" depends-on-methods="Test.FundsWithdrawal.testClickWithdrawButton" duration-ms="1204" status="PASS">
+        <test-method signature="testClickContinueOnModal()[pri:12, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:06 IST" name="testClickContinueOnModal" finished-at="2026-01-06T11:37:07 IST" depends-on-methods="Test.FundsWithdrawal.testClickWithdrawButton" duration-ms="938" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testClickContinueOnModal -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T09:43:38 IST" name="teardown" finished-at="2026-01-06T09:43:38 IST" duration-ms="576" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:07 IST" name="teardown" finished-at="2026-01-06T11:37:08 IST" duration-ms="441" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
