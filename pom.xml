@@ -12,13 +12,14 @@
 
     <dependencies>
 
-        <!-- Selenium Core -->
+        <!-- Selenium -->
         <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.23.0</version>
-</dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.23.0</version>
+        </dependency>
 
+        <!-- WebDriver Manager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -32,7 +33,7 @@
             <version>42.7.3</version>
         </dependency>
 
-        <!-- Apache POI (Excel) -->
+        <!-- Apache POI -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
@@ -49,7 +50,6 @@
 
     </dependencies>
 
-    <!-- TestNG XML Execution -->
     <build>
         <plugins>
             <plugin>
