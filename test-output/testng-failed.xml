@@ -3,23 +3,24 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Test.FundsWithdrawal">
+      <class name="TestCases.View_Market_Offer">
         <methods>
-          <include name="testClickContinueOnModal"/>
-          <include name="testOpenDigielvApplication"/>
-          <include name="testClickWithdrawButton"/>
-          <include name="testOpenFundsWithdrawal"/>
-          <include name="testFetchOtpFromDB"/>
-          <include name="testEnterMobileAndClickLogin"/>
-          <include name="testClickLoginRegister"/>
+          <include name="testOpenLoginPage"/>
+          <include name="testDismissKycPopupIfPresent"/>
           <include name="testEnterOtpInputs"/>
-          <include name="testEnterAmountAndRemarks"/>
-          <include name="testHandleKycPopupIfPresent"/>
+          <include name="testClickCreateBid"/>
+          <include name="testClickLoginRegisterButton"/>
+          <include name="testClickPlaceOfferToBuy"/>
+          <include name="testClickViewAllOffer"/>
+          <include name="testEnterMobileAndClickLogin"/>
+          <include name="testNavigateToViewMarketOffer"/>
+          <include name="testFetchOtpFromDB"/>
+          <include name="testEnterBidPrice"/>
           <include name="setup"/>
+          <include name="testClickContinueButton"/>
           <include name="teardown"/>
-          <include name="testWithdrawFundsClick"/>
         </methods>
-      </class> <!-- Test.FundsWithdrawal -->
+      </class> <!-- TestCases.View_Market_Offer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

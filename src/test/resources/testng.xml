@@ -1,8 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Automation Suite">
-    <test name="Regression Tests">
-        <classes>
-            <class name="Test.FundsWithdrawal"/>
-        </classes>
+<suite name="AutomationSuite">
+    <test name="RegressionTests">
+        <packages>
+            <package name="com.automation.Buyer_MenuTabs"/>
+            <package name="com.automation.CDRegisteration"/>
+            <package name="com.automation.Seller_MenuTabs"/>
+            <package name="com.automation.UserRegistration"/>
+        </packages>
     </test>
 </suite>

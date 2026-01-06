@@ -1,69 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="12" passed="12" failed="0" skipped="0">
+<testng-results ignored="0" total="12" passed="11" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-06T11:36:45 IST" name="Default suite" finished-at="2026-01-06T11:37:08 IST" duration-ms="22852">
+  <suite started-at="2026-01-06T14:17:58 IST" name="Default suite" finished-at="2026-01-06T14:18:37 IST" duration-ms="38584">
     <groups>
     </groups>
-    <test started-at="2026-01-06T11:36:45 IST" name="Default test" finished-at="2026-01-06T11:37:08 IST" duration-ms="22852">
-      <class name="Test.FundsWithdrawal">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:45 IST" name="setup" finished-at="2026-01-06T11:36:48 IST" duration-ms="3353" status="PASS">
+    <test started-at="2026-01-06T14:17:58 IST" name="Default test" finished-at="2026-01-06T14:18:37 IST" duration-ms="38584">
+      <class name="TestCases.View_Market_Offer">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:17:58 IST" name="setup" finished-at="2026-01-06T14:18:02 IST" duration-ms="3608" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testSetMobileNumber()[pri:1, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:48 IST" name="testSetMobileNumber" finished-at="2026-01-06T11:36:48 IST" duration-ms="27" status="PASS">
+        <test-method signature="testOpenLoginPage()[pri:1, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:02 IST" name="testOpenLoginPage" finished-at="2026-01-06T14:18:05 IST" duration-ms="3332" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testSetMobileNumber -->
-        <test-method signature="testOpenDigielvApplication()[pri:2, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:48 IST" name="testOpenDigielvApplication" finished-at="2026-01-06T11:36:52 IST" depends-on-methods="Test.FundsWithdrawal.testSetMobileNumber" duration-ms="3844" status="PASS">
+        </test-method> <!-- testOpenLoginPage -->
+        <test-method signature="testClickLoginRegisterButton()[pri:2, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:05 IST" name="testClickLoginRegisterButton" finished-at="2026-01-06T14:18:06 IST" depends-on-methods="TestCases.View_Market_Offer.testOpenLoginPage" duration-ms="546" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testOpenDigielvApplication -->
-        <test-method signature="testClickLoginRegister()[pri:3, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:52 IST" name="testClickLoginRegister" finished-at="2026-01-06T11:36:52 IST" depends-on-methods="Test.FundsWithdrawal.testOpenDigielvApplication" duration-ms="399" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testClickLoginRegister -->
-        <test-method signature="testEnterMobileAndClickLogin()[pri:4, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:53 IST" name="testEnterMobileAndClickLogin" finished-at="2026-01-06T11:36:53 IST" depends-on-methods="Test.FundsWithdrawal.testClickLoginRegister" duration-ms="665" status="PASS">
+        </test-method> <!-- testClickLoginRegisterButton -->
+        <test-method signature="testEnterMobileAndClickLogin()[pri:3, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:06 IST" name="testEnterMobileAndClickLogin" finished-at="2026-01-06T14:18:07 IST" depends-on-methods="TestCases.View_Market_Offer.testClickLoginRegisterButton" duration-ms="1267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnterMobileAndClickLogin -->
-        <test-method signature="testFetchOtpFromDB()[pri:5, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:53 IST" name="testFetchOtpFromDB" finished-at="2026-01-06T11:36:54 IST" depends-on-methods="Test.FundsWithdrawal.testEnterMobileAndClickLogin" duration-ms="735" status="PASS">
+        <test-method signature="testFetchOtpFromDB()[pri:4, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:07 IST" name="testFetchOtpFromDB" finished-at="2026-01-06T14:18:09 IST" depends-on-methods="TestCases.View_Market_Offer.testEnterMobileAndClickLogin" duration-ms="2346" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFetchOtpFromDB -->
-        <test-method signature="testEnterOtpInputs()[pri:6, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:54 IST" name="testEnterOtpInputs" finished-at="2026-01-06T11:36:58 IST" depends-on-methods="Test.FundsWithdrawal.testFetchOtpFromDB" duration-ms="4557" status="PASS">
+        <test-method signature="testEnterOtpInputs()[pri:5, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:09 IST" name="testEnterOtpInputs" finished-at="2026-01-06T14:18:15 IST" depends-on-methods="TestCases.View_Market_Offer.testFetchOtpFromDB" duration-ms="5570" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEnterOtpInputs -->
-        <test-method signature="testHandleKycPopupIfPresent()[pri:7, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:36:59 IST" name="testHandleKycPopupIfPresent" finished-at="2026-01-06T11:37:04 IST" depends-on-methods="Test.FundsWithdrawal.testEnterOtpInputs" duration-ms="5423" status="PASS">
+        <test-method signature="testDismissKycPopupIfPresent()[pri:6, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:15 IST" name="testDismissKycPopupIfPresent" finished-at="2026-01-06T14:18:20 IST" depends-on-methods="TestCases.View_Market_Offer.testEnterOtpInputs" duration-ms="5084" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testHandleKycPopupIfPresent -->
-        <test-method signature="testOpenFundsWithdrawal()[pri:8, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:04 IST" name="testOpenFundsWithdrawal" finished-at="2026-01-06T11:37:04 IST" depends-on-methods="Test.FundsWithdrawal.testHandleKycPopupIfPresent" duration-ms="185" status="PASS">
+        </test-method> <!-- testDismissKycPopupIfPresent -->
+        <test-method signature="testNavigateToViewMarketOffer()[pri:7, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:20 IST" name="testNavigateToViewMarketOffer" finished-at="2026-01-06T14:18:21 IST" depends-on-methods="TestCases.View_Market_Offer.testDismissKycPopupIfPresent" duration-ms="587" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testOpenFundsWithdrawal -->
-        <test-method signature="testWithdrawFundsClick()[pri:9, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:04 IST" name="testWithdrawFundsClick" finished-at="2026-01-06T11:37:05 IST" depends-on-methods="Test.FundsWithdrawal.testOpenFundsWithdrawal" duration-ms="696" status="PASS">
+        </test-method> <!-- testNavigateToViewMarketOffer -->
+        <test-method signature="testClickViewAllOffer()[pri:8, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:21 IST" name="testClickViewAllOffer" finished-at="2026-01-06T14:18:22 IST" depends-on-methods="TestCases.View_Market_Offer.testNavigateToViewMarketOffer" duration-ms="1460" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testWithdrawFundsClick -->
-        <test-method signature="testEnterAmountAndRemarks()[pri:10, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:05 IST" name="testEnterAmountAndRemarks" finished-at="2026-01-06T11:37:06 IST" depends-on-methods="Test.FundsWithdrawal.testWithdrawFundsClick" duration-ms="1193" status="PASS">
+        </test-method> <!-- testClickViewAllOffer -->
+        <test-method signature="testClickPlaceOfferToBuy()[pri:9, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:22 IST" name="testClickPlaceOfferToBuy" finished-at="2026-01-06T14:18:23 IST" depends-on-methods="TestCases.View_Market_Offer.testClickViewAllOffer" duration-ms="1391" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testEnterAmountAndRemarks -->
-        <test-method signature="testClickWithdrawButton()[pri:11, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:06 IST" name="testClickWithdrawButton" finished-at="2026-01-06T11:37:06 IST" depends-on-methods="Test.FundsWithdrawal.testEnterAmountAndRemarks" duration-ms="167" status="PASS">
+        </test-method> <!-- testClickPlaceOfferToBuy -->
+        <test-method signature="testEnterBidPrice()[pri:10, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:24 IST" name="testEnterBidPrice" finished-at="2026-01-06T14:18:25 IST" depends-on-methods="TestCases.View_Market_Offer.testClickPlaceOfferToBuy" duration-ms="993" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testClickWithdrawButton -->
-        <test-method signature="testClickContinueOnModal()[pri:12, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:06 IST" name="testClickContinueOnModal" finished-at="2026-01-06T11:37:07 IST" depends-on-methods="Test.FundsWithdrawal.testClickWithdrawButton" duration-ms="938" status="PASS">
+        </test-method> <!-- testEnterBidPrice -->
+        <test-method signature="testClickCreateBid()[pri:11, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:25 IST" name="testClickCreateBid" finished-at="2026-01-06T14:18:25 IST" depends-on-methods="TestCases.View_Market_Offer.testEnterBidPrice" duration-ms="746" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testClickContinueOnModal -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:Test.FundsWithdrawal@fa4c865]" started-at="2026-01-06T11:37:07 IST" name="teardown" finished-at="2026-01-06T11:37:08 IST" duration-ms="441" status="PASS">
+        </test-method> <!-- testClickCreateBid -->
+        <test-method signature="testClickContinueButton()[pri:12, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:25 IST" name="testClickContinueButton" finished-at="2026-01-06T14:18:36 IST" depends-on-methods="TestCases.View_Market_Offer.testClickCreateBid" duration-ms="10551" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[FAILED [Continue Button]: Could not click Continue. Reason: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[@class="btn btn-primary w-100 rounded-pill" and contains(text(), ' Continue ')])[4] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61236}, goog:processID: 1832, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61236/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b1ff69377de66394588441c74b15c1d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: FAILED [Continue Button]: Could not click Continue. Reason: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[@class="btn btn-primary w-100 rounded-pill" and contains(text(), ' Continue ')])[4] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61236}, goog:processID: 1832, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61236/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b1ff69377de66394588441c74b15c1d
+at org.testng.Assert.fail(Assert.java:111)
+at TestCases.View_Market_Offer.testClickContinueButton(View_Market_Offer.java:255)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClickContinueButton -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:36 IST" name="teardown" finished-at="2026-01-06T14:18:37 IST" duration-ms="668" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- Test.FundsWithdrawal -->
+      </class> <!-- TestCases.View_Market_Offer -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>12/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>11/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 06 11:36:45 IST 2026</td>
+<td>Started on:</td><td>Tue Jan 06 14:17:58 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>22 seconds (22852 ms)</td>
+<tr><td>Total time:</td><td>38 seconds (38584 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,89 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testClickContinueButton()'><b>testClickContinueButton</b><br>Test class: TestCases.View_Market_Offer</td>
+<td><div><pre>java.lang.AssertionError: FAILED [Continue Button]: Could not click Continue. Reason: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[@class=&quot;btn btn-primary w-100 rounded-pill&quot; and contains(text(), &apos; Continue &apos;)])[4] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61236}, goog:processID: 1832, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61236/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b1ff69377de66394588441c74b15c1d
+	at org.testng.Assert.fail(Assert.java:111)
+	at TestCases.View_Market_Offer.testClickContinueButton(View_Market_Offer.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div><a href='#' onClick='toggleBox("stack-trace777236628", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace777236628'><pre>java.lang.AssertionError: FAILED [Continue Button]: Could not click Continue. Reason: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[@class=&quot;btn btn-primary w-100 rounded-pill&quot; and contains(text(), &apos; Continue &apos;)])[4] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.23.0&apos;, revision: &apos;4df0a231af&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.8&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61236}, goog:processID: 1832, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61236/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2b1ff69377de66394588441c74b15c1d
+	at org.testng.Assert.fail(Assert.java:111)
+	at TestCases.View_Market_Offer.testClickContinueButton(View_Market_Offer.java:255)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+</pre></div></td>
+<td>10</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,65 +159,60 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Test.FundsWithdrawal.testEnterMobileAndClickLogin()'><b>testEnterMobileAndClickLogin</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testFetchOtpFromDB()'><b>testFetchOtpFromDB</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testWithdrawFundsClick()'><b>testWithdrawFundsClick</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testHandleKycPopupIfPresent()'><b>testHandleKycPopupIfPresent</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>5</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testEnterAmountAndRemarks()'><b>testEnterAmountAndRemarks</b><br>Test class: Test.FundsWithdrawal</td>
+<td title='TestCases.View_Market_Offer.testEnterMobileAndClickLogin()'><b>testEnterMobileAndClickLogin</b><br>Test class: TestCases.View_Market_Offer</td>
 <td></td>
 <td>1</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
 <tr>
-<td title='Test.FundsWithdrawal.testClickWithdrawButton()'><b>testClickWithdrawButton</b><br>Test class: Test.FundsWithdrawal</td>
+<td title='TestCases.View_Market_Offer.testFetchOtpFromDB()'><b>testFetchOtpFromDB</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>2</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testDismissKycPopupIfPresent()'><b>testDismissKycPopupIfPresent</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>5</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testClickPlaceOfferToBuy()'><b>testClickPlaceOfferToBuy</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>1</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testClickCreateBid()'><b>testClickCreateBid</b><br>Test class: TestCases.View_Market_Offer</td>
 <td></td>
 <td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
 <tr>
-<td title='Test.FundsWithdrawal.testOpenDigielvApplication()'><b>testOpenDigielvApplication</b><br>Test class: Test.FundsWithdrawal</td>
+<td title='TestCases.View_Market_Offer.testClickViewAllOffer()'><b>testClickViewAllOffer</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>1</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testClickLoginRegisterButton()'><b>testClickLoginRegisterButton</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>0</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testEnterBidPrice()'><b>testEnterBidPrice</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>0</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testEnterOtpInputs()'><b>testEnterOtpInputs</b><br>Test class: TestCases.View_Market_Offer</td>
+<td></td>
+<td>5</td>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
+<tr>
+<td title='TestCases.View_Market_Offer.testOpenLoginPage()'><b>testOpenLoginPage</b><br>Test class: TestCases.View_Market_Offer</td>
 <td></td>
 <td>3</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
 <tr>
-<td title='Test.FundsWithdrawal.testClickLoginRegister()'><b>testClickLoginRegister</b><br>Test class: Test.FundsWithdrawal</td>
+<td title='TestCases.View_Market_Offer.testNavigateToViewMarketOffer()'><b>testNavigateToViewMarketOffer</b><br>Test class: TestCases.View_Market_Offer</td>
 <td></td>
 <td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testClickContinueOnModal()'><b>testClickContinueOnModal</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testSetMobileNumber()'><b>testSetMobileNumber</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testEnterOtpInputs()'><b>testEnterOtpInputs</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>4</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
-<tr>
-<td title='Test.FundsWithdrawal.testOpenFundsWithdrawal()'><b>testOpenFundsWithdrawal</b><br>Test class: Test.FundsWithdrawal</td>
-<td></td>
-<td>0</td>
-<td>Test.FundsWithdrawal@fa4c865</td></tr>
+<td>TestCases.View_Market_Offer@3bd82cf5</td></tr>
 </table><p>
 </body>
 </html>
