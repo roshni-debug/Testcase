@@ -1,362 +1,213 @@
 package TestCases;
 
+import java.sql.*;
 import java.time.Duration;
 import java.util.List;
-import java.io.IOException;
-import java.sql.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Own_CDUtilize {
-	
-	/*    Testcase Steps:
-            1. Read mobile number
-            2. Open Login Page
-            3. Click Login/Register Button
-            4. Enter Mobile and Click Login
-            5. Fetch OTP from Database
-            6. Enter OTP Inputs
-            7. Dismiss KYC Popup (if any)
-            8. Navigate to List of CDs
-            9. Click Utilize Button
-            10. Select Make
-            11. Select Model
-            12. Enter Dealer Name
-            13. Click Continue After Dealer
-            14. Click Confirm to utilize CD
-            15. Click Final Continue 
-	 */
 
     private WebDriver driver;
-    private Actions actions;
     private WebDriverWait wait;
-    private static String mobileNumber = "9999999990";
+    private Actions actions;
+
+    private static final String mobileNumber = "9999999990";
     private static String otp;
 
+    // ===================== SETUP =====================
     @BeforeClass
     public void setup() {
-        System.out.println("***************  TestCase Execution for Seller CD Utilization Flow  ***************");
-        try {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            actions = new Actions(driver);
-            driver.manage().window().maximize();
-            wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-            System.out.println("WebDriver setup successful.");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Setup]: WebDriver failed to setup: " + e.getMessage());
-        }
+
+        System.out.println("========== Seller CD Utilization Test Started ==========");
+
+        WebDriverManager.chromedriver().setup();
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
+
+        driver = new ChromeDriver(options);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        actions = new Actions(driver);
     }
+
+    // ===================== TEST FLOW =====================
 
     @Test(priority = 1)
-    public void testOpenLoginPage() {
-        System.out.println("\n========== Step 2: Navigate to the login page ==========");
-        try {
-            driver.get("https://digielv.mmcm.in/");
-            Assert.assertNotNull(driver.getTitle(), "FAILED [Navigation]: Page did not load or title is null.");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Page Load]: Could not load the login page. Reason: " + e.getMessage());
-        }
+    public void openLoginPage() {
+        driver.get("https://digielv.mmcm.in/");
+        Assert.assertNotNull(driver.getTitle(), "Login page not loaded");
     }
 
-    @Test(priority = 2, dependsOnMethods = "testOpenLoginPage")
-    public void testClickLoginRegisterButton() {
-        System.out.println("\n========== Step 3: Click Login/Register button ==========");
-        try {
-            driver.findElement(By.xpath("//*[@id=\"navbarNav\"]/ul/li[5]/a/button")).click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Login/Register]: Couldn't find or click the Login/Register button. Reason: " + e.getMessage());
-        }
+    @Test(priority = 2)
+    public void clickLoginRegister() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@id='navbarNav']/ul/li[5]/a/button"))).click();
     }
 
-    @Test(priority = 3, dependsOnMethods = "testClickLoginRegisterButton")
-    public void testEnterMobileAndClickLogin() {
-        System.out.println("\n========== Step 4: Enter mobile number and click Login ==========");
-        try {
-            driver.findElement(By.xpath("//input[@placeholder='Enter Your Mobile Number']")).sendKeys(mobileNumber);
-            driver.findElement(By.xpath("//button[normalize-space(text())='Login']")).click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Mobile/Login]: Could not enter mobile or click Login. Reason: " + e.getMessage());
-        }
+    @Test(priority = 3)
+    public void enterMobileAndLogin() {
+        driver.findElement(By.xpath("//input[@placeholder='Enter Your Mobile Number']"))
+                .sendKeys(mobileNumber);
+        driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
     }
 
-    @Test(priority = 4, dependsOnMethods = "testEnterMobileAndClickLogin")
-    public void testFetchOtpFromDB() {
-        System.out.println("\n========== Step 5: Fetch OTP from database ==========");
-        try {
-            otp = fetchOtpFromDatabase(mobileNumber);
-            Assert.assertNotNull(otp, "FAILED [OTP Fetch]: OTP fetched is null from DB (DB error or wrong mobile).");
-            Assert.assertEquals(otp.length(), 6, "FAILED [OTP Fetch]: OTP is not 6 digits. OTP=" + otp);
-        } catch (Exception e) {
-            Assert.fail("FAILED [OTP Fetch DB]: Could not fetch OTP from DB: " + e.getMessage());
-        }
+    @Test(priority = 4)
+    public void fetchOtpFromDB() {
+        otp = fetchOtp(mobileNumber);
+        Assert.assertNotNull(otp, "OTP not fetched from DB");
+        Assert.assertEquals(otp.length(), 6, "Invalid OTP length");
+        System.out.println("OTP fetched: " + otp);
     }
 
-    @Test(priority = 5, dependsOnMethods = "testFetchOtpFromDB")
-    public void testEnterOtpInputs() throws InterruptedException {
-        System.out.println("\n========== Step 6: Enter OTP into input fields ==========");
-        try {
-            WebDriverWait otpWait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            List<WebElement> otpInputs = otpWait.until(
+    @Test(priority = 5)
+    public void enterOtp() {
+
+        List<WebElement> otpInputs = wait.until(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                    By.xpath("//p-inputotp//input[contains(@class,'p-inputotp-input')]")
-                )
-            );
-            Assert.assertEquals(otpInputs.size(), 6, "FAILED [OTP Boxes]: Did not find 6 OTP input boxes. Found: " + otpInputs.size());
-            for (int i = 0; i < 6; i++) {
-                WebElement input = otpInputs.get(i);
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input);
-                input.click();
-                input.clear();
-                input.sendKeys(Character.toString(otp.charAt(i)));
-                Thread.sleep(100);
-            }
-        } catch (Exception e) {
-            Assert.fail("FAILED [OTP Entry]: Could not enter OTP. Reason: " + e.getMessage());
+                        By.xpath("//p-inputotp//input[contains(@class,'p-inputotp-input')]")));
+
+        for (int i = 0; i < 6; i++) {
+            otpInputs.get(i).sendKeys(String.valueOf(otp.charAt(i)));
         }
     }
 
-    @Test(priority = 6, dependsOnMethods = "testEnterOtpInputs")
-    public void testDismissKycPopupIfPresent() {
-        System.out.println("\n========== Step 7: Handle/dismiss optional KYC popup if it appears ==========");
+    @Test(priority = 6)
+    public void dismissKycPopupIfPresent() {
         try {
-            WebDriverWait popupWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            WebElement cancelPopupButton = popupWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@id=\"content\"]/main/app-user-profile/div/div[2]/div/div[3]/button[1]")
-                )
-            );
-            cancelPopupButton.click();
-            System.out.println("KYC cancellation popup appeared and was handled.");
-        } catch (Exception e) {
-            System.out.println("No KYC popup present, continuing. (Reason: " + e.getMessage() + ")");
+            WebElement skip = new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.elementToBeClickable(
+                            By.xpath("//*[normalize-space()='Skip For Now']")));
+            skip.click();
+        } catch (TimeoutException e) {
+            System.out.println("No KYC popup shown");
         }
     }
 
-    @Test(priority = 7, dependsOnMethods = "testDismissKycPopupIfPresent")
-    public void testNavigateToListOfCDs() {
-        System.out.println("\n========== Step 8: Click 'List of CDs' from the sidebar ==========");
-        try {
-            WebDriverWait SideBar = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement ListCDs = SideBar.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(normalize-space(.), 'List of CDs')]"))
-            );
-            ListCDs.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Sidebar/List of CDs]: Could not click 'List of CDs'. Reason: " + e.getMessage());
-        }
+    @Test(priority = 7)
+    public void navigateToListOfCDs() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//a[contains(normalize-space(),'List of CDs')]"))).click();
     }
 
-    @Test(priority = 8, dependsOnMethods = "testNavigateToListOfCDs")
-    public void testClickUtilizeButton() {
-        System.out.println("\n========== Step 9: Click Utilize button for a CD ==========");
-        try {
-            WebDriverWait buttonWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement utilizeBtn = buttonWait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='btn w-md-50 w-100 rounded-pill btn-primary ng-star-inserted'][1]"))
-            );
-            utilizeBtn.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Utilize Button]: Could not click Utilize button. Reason: " + e.getMessage());
-        }
+    @Test(priority = 8)
+    public void clickUtilizeButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[contains(text(),'Utilize')]"))).click();
     }
 
-    @Test(priority = 9, dependsOnMethods = "testClickUtilizeButton")
-    public void testSelectMake() {
-        System.out.println("\n========== Step 10: Select Make ==========");
-        try {
-            WebDriverWait makeWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement make = makeWait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//*[@placeholder=\"Select Make\"]"))
-            );
-            make.click();
+    @Test(priority = 9)
+    public void selectMake() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@placeholder='Select Make']"))).click();
 
-            WebDriverWait makedrop = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement makeOption = makedrop.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//*[@aria-label=\"SUZUKI\"]"))
-            );
-            makeOption.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Select Make]: Could not select Make. Reason: " + e.getMessage());
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@aria-label='SUZUKI']"))).click();
     }
 
-    @Test(priority = 10, dependsOnMethods = "testSelectMake")
-    public void testSelectModel() {
-        System.out.println("\n========== Step 11: Select Model ==========");
-        try {
-            WebDriverWait modelWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement model = modelWait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//*[@placeholder=\"Select Model\"]"))
-            );
-            model.click();
+    @Test(priority = 10)
+    public void selectModel() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@placeholder='Select Model']"))).click();
 
-            WebDriverWait modeldrop = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement modelOption = modeldrop.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//*[@aria-label=\"Burgman Street\"]"))
-            );
-            modelOption.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Select Model]: Could not select Model. Reason: " + e.getMessage());
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@aria-label='Burgman Street']"))).click();
     }
 
-    @Test(priority = 11, dependsOnMethods = "testSelectModel")
-    public void testEnterDealerName() {
-        System.out.println("\n========== Step 12: Enter Dealer Name ==========");
-        try {
-            WebDriverWait dealerWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement dealerName = dealerWait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("//*[@placeholder=\"Add Dealer Name\"]"))
-            );
-            dealerName.sendKeys("NA");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Dealer Name]: Could not enter dealer name. Reason: " + e.getMessage());
-        }
+    @Test(priority = 11)
+    public void enterDealerName() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//*[@placeholder='Add Dealer Name']"))).sendKeys("NA");
     }
 
-    @Test(priority = 12, dependsOnMethods = "testEnterDealerName")
-    public void testClickContinueAfterDealer() {
-        System.out.println("\n========== Step 13: Click Continue after entering Dealer Name ==========");
-        try {
-            driver.findElement(By.xpath("//button[@class=\"btn btn-primary w-50 rounded-pill\" and text()=\"Continue\"]")).click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Continue Dealer]: Could not click Continue after dealer name. Reason: " + e.getMessage());
-        }
+    @Test(priority = 12)
+    public void continueAfterDealer() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[normalize-space()='Continue']"))).click();
     }
 
-    @Test(priority = 13, dependsOnMethods = "testClickContinueAfterDealer")
-    public void testClickConfirmUtilize() {
-        System.out.println("\n========== Step 14: Click Confirm to utilize CD ==========");
-        try {
-            WebDriverWait buttonWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement confirmBtn = buttonWait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class=\"btn btn-success rounded-pill\" and contains(text(), 'Confirm')])[2]"))
-            );
-            confirmBtn.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Confirm Utilization]: Could not click Confirm for utilization. Reason: " + e.getMessage());
-        }
+    @Test(priority = 13)
+    public void confirmUtilization() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("(//button[contains(text(),'Confirm')])[2]"))).click();
     }
 
-    @Test(priority = 14, dependsOnMethods = "testClickConfirmUtilize")
-    public void testFinalContinue() {
-        System.out.println("\n========== Step 15: Click Final Continue after utilization ==========");
-        try {
-            WebDriverWait buttonWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement continueBtn = buttonWait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath("(//*[@class=\"btn btn-primary w-100 rounded-pill\" and contains(text(), 'Continue')])[3]"))
-            );
-            continueBtn.click();
-            System.out.println("Test scenario for CD Utilization completed successfully.");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Final Continue]: Could not click the final Continue after utilization. Reason: " + e.getMessage());
-        }
+    @Test(priority = 14)
+    public void finalContinue() {
+        wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[contains(text(),'Continue')]"))).click();
+        System.out.println("CD Utilization completed successfully");
     }
-    
-    @AfterClass
+
+    // ===================== TEARDOWN =====================
+    @AfterClass(alwaysRun = true)
     public void teardown() {
-        System.out.println("Test Execution Completed.");
+
+        resetIsLoggedIn(mobileNumber);
 
         if (driver != null) {
-            try {
-                System.out.println("Logged Out Successfully!");
-            } finally {
-                driver.quit();   //
-            }
+            driver.quit();
         }
 
-        if (mobileNumber != null && !mobileNumber.isEmpty()) {
-            updateIsLoggedInInDB(mobileNumber);
-        }
+        System.out.println("========== Seller CD Utilization Test Finished ==========");
     }
 
+    // ===================== DB UTILITIES =====================
 
-    // === Utility Methods ===
-    	public static String updateIsLoggedInInDB(String mobileNumber) {
-        String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:1521/mmcmuat";
-        String user = "uatuser";
-        String password = "password@123";
-        String update = "UPDATE common.user_mstr SET is_logged_in = 0 WHERE mobile_no = ?";
+    private static String fetchOtp(String mobile) {
 
-        try {
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement pstmt = conn.prepareStatement(update);
-            pstmt.setLong(1, Long.parseLong(mobileNumber));  
-            int rows = pstmt.executeUpdate();
-            if (rows > 0) {
-                System.out.println("is_logged_in reset in DB for mobile: " + mobileNumber);
-            } else {
-                System.out.println("No row updated for mobile: " + mobileNumber);
-            }
-            pstmt.close();
-            conn.close();
-        } catch (Exception e) {
-            System.out.println("Error updating is_logged_in in DB: " + e.getMessage());
-        }
-		return update;  
-    }
- 
-
-    // Utility method to read 10 digits from console
-    public static String readTenDigitsFromConsole() {
-        StringBuilder sb = new StringBuilder(10);
-        System.out.print("Please enter your 10-digit mobile number: ");
-        try {
-            while (sb.length() < 10) {
-                int ch = System.in.read();
-                if (ch == -1) break;
-                if (ch == '\r' || ch == '\n') continue;
-                char c = (char) ch;
-                if (c >= '0' && c <= '9') {
-                    sb.append(c);
-                    System.out.print(c);
-                }
-            }
-            int leftover;
-            do { leftover = System.in.read(); } while (leftover != -1 && leftover != '\n');
-        } catch (IOException e) {
-            Assert.fail("FAILED [Console Read]: Failed reading mobile from console: " + e.getMessage());
-        }
-        return sb.toString();
-    }
-
-    // Utility method to fetch OTP by mobile
-    public static String fetchOtpFromDatabase(String mobileNumber) {
         String otp = null;
-        String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:1521/mmcmuat";
-        String user = "uatuser";
-        String password = "password@123";
-        String query1 = "SELECT otp FROM common.user_mstr WHERE mobile_no = " + mobileNumber;
-        try {
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(url, user, password);
-            Statement stmt1 = conn.createStatement();
-            ResultSet rs1 = stmt1.executeQuery(query1);
-            if (rs1.next()) {
-                otp = rs1.getString("otp");
-            } else {
-                Assert.fail("FAILED [DB Query]: No user found with mobile number: " + mobileNumber);
+
+        String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:5432/mmcmuat";
+        String user = System.getenv("uatuser");
+        String pass = System.getenv("password@123");
+
+        String query = "SELECT otp FROM common.user_mstr WHERE mobile_no = ?";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement ps = conn.prepareStatement(query)) {
+
+            ps.setString(1, mobile);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                otp = rs.getString("otp");
             }
-            rs1.close();
-            stmt1.close();
-            conn.close();
+
         } catch (Exception e) {
-            Assert.fail("FAILED [DB OTP Fetch]: DB error while fetching OTP: " + e.getMessage());
+            e.printStackTrace(System.out);
         }
         return otp;
     }
+
+    private static void resetIsLoggedIn(String mobile) {
+
+        String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:5432/mmcmuat";
+        String user = System.getenv("uatuser");
+        String pass = System.getenv("password@123");
+
+        String update = "UPDATE common.user_mstr SET is_logged_in = 0 WHERE mobile_no = ?";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement ps = conn.prepareStatement(update)) {
+
+            ps.setString(1, mobile);
+            ps.executeUpdate();
+            System.out.println("is_logged_in reset for " + mobile);
+
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
 }
-
-
-

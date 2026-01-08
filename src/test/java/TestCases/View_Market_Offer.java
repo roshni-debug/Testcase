@@ -1,28 +1,9 @@
-/*
-    Testcase Steps for Buyer: View Market Offer and Place Bid
-
-    1. Read mobile number from console
-    2. Open Login Page
-    3. Click Login/Register Button
-    4. Enter Mobile and Click Login
-    5. Fetch OTP from Database
-    6. Enter OTP Inputs
-    7. Dismiss KYC Popup (if any)
-    8. Navigate to View Market Offer
-    9. Click View All Offer
-    10. Click Place Offer to Buy
-    11. Enter Bid Price
-    12. Click Create Bid
-    13. Click Continue
-*/
-
 package TestCases;
 
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.io.IOException;
 import java.sql.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,22 +24,29 @@ public class View_Market_Offer {
     private WebDriver driver;
     private Actions actions;
     private WebDriverWait wait;
-    private static String mobileNumber = "9911991191";
+    
+    private static String mobileNumber;
     private static String otp;
+    private static String bidPrice;
 
+    // === Jenkins/Maven Parameters ===
+    @Parameters({"mobileNumber", "bidPrice"})
     @BeforeClass
-    public void setup() {
-        System.out.println("***************  TestCase Execution for Buyer Market Offer View Flow  ***************");
+    public void setup(@Optional("9911991191") String mobile, @Optional("10310") String bid) {
+        mobileNumber = mobile;
+        bidPrice = bid;
+
+        System.out.println("*************** TestCase Execution for Buyer Market Offer View Flow ***************");
         try {
-            // Set ChromeDriver path if not present in system environment
-        	WebDriverManager.chromedriver().setup();
-            // Chrome Preferences
+            WebDriverManager.chromedriver().setup();
+
             Map<String, Object> prefs = new HashMap<>();
             prefs.put("profile.default_content_settings.popups", 0);
             prefs.put("download.prompt_for_download", false);
             prefs.put("download.directory_upgrade", true);
             prefs.put("safebrowsing.enabled", true);
             prefs.put("profile.default_content_setting_values.automatic_downloads", 1);
+            
             ChromeOptions options = new ChromeOptions();
             options.setExperimentalOption("prefs", prefs);
 
@@ -66,287 +54,176 @@ public class View_Market_Offer {
             actions = new Actions(driver);
             driver.manage().window().maximize();
             wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-            System.out.println("WebDriver setup successful.");
+
+            System.out.println("WebDriver setup successful for mobile: " + mobileNumber + ", bid: " + bidPrice);
         } catch (Exception e) {
-            Assert.fail("FAILED [Setup]: WebDriver failed to setup: " + e.getMessage());
+            Assert.fail("FAILED [Setup]: WebDriver setup failed: " + e.getMessage());
         }
     }
 
+    // === Login Steps ===
     @Test(priority = 1)
     public void testOpenLoginPage() {
-        System.out.println("\n========== Step 2: Navigate to the login page ==========");
+        System.out.println("Step 1: Open Login Page");
         try {
             driver.get("https://digielv.mmcm.in/");
-            Assert.assertNotNull(driver.getTitle(), "FAILED [Navigation]: Page did not load or title is null.");
+            Assert.assertNotNull(driver.getTitle(), "Page did not load or title is null.");
         } catch (Exception e) {
-            Assert.fail("FAILED [Page Load]: Could not load the login page. Reason: " + e.getMessage());
+            Assert.fail("FAILED [Navigation]: " + e.getMessage());
         }
     }
 
     @Test(priority = 2, dependsOnMethods = "testOpenLoginPage")
     public void testClickLoginRegisterButton() {
-        System.out.println("\n========== Step 3: Click Login/Register button ==========");
-        try {
-            driver.findElement(By.xpath("//*[@id=\"navbarNav\"]/ul/li[5]/a/button")).click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Login/Register]: Couldn't find or click the Login/Register button. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 2: Click Login/Register Button");
+        clickElement(By.xpath("//button[contains(text(),'Login/Register')]"));
     }
 
     @Test(priority = 3, dependsOnMethods = "testClickLoginRegisterButton")
     public void testEnterMobileAndClickLogin() {
-        System.out.println("\n========== Step 4: Enter mobile number and click Login ==========");
-        try {
-            driver.findElement(By.xpath("//input[@placeholder='Enter Your Mobile Number']")).sendKeys(mobileNumber);
-            driver.findElement(By.xpath("//button[normalize-space(text())='Login']")).click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Mobile/Login]: Could not enter mobile or click Login. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 3: Enter Mobile Number and Click Login");
+        typeText(By.xpath("//input[@placeholder='Enter Your Mobile Number']"), mobileNumber);
+        clickElement(By.xpath("//button[normalize-space(text())='Login']"));
     }
 
     @Test(priority = 4, dependsOnMethods = "testEnterMobileAndClickLogin")
     public void testFetchOtpFromDB() {
-        System.out.println("\n========== Step 5: Fetch OTP from database ==========");
-        try {
-            otp = fetchOtpFromDatabase(mobileNumber);
-            Assert.assertNotNull(otp, "FAILED [OTP Fetch]: OTP fetched is null from DB (DB error or wrong mobile).");
-            Assert.assertEquals(otp.length(), 6, "FAILED [OTP Fetch]: OTP is not 6 digits. OTP=" + otp);
-        } catch (Exception e) {
-            Assert.fail("FAILED [OTP Fetch DB]: Could not fetch OTP from DB: " + e.getMessage());
-        }
+        System.out.println("Step 4: Fetch OTP from Database");
+        otp = fetchOtpFromDatabase(mobileNumber);
+        Assert.assertNotNull(otp, "OTP fetched is null.");
+        Assert.assertEquals(otp.length(), 6, "OTP is not 6 digits. OTP=" + otp);
+        System.out.println("Fetched OTP: " + otp);
     }
 
     @Test(priority = 5, dependsOnMethods = "testFetchOtpFromDB")
     public void testEnterOtpInputs() throws InterruptedException {
-        System.out.println("\n========== Step 6: Enter OTP into input fields ==========");
-        try {
-            WebDriverWait otpWait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            List<WebElement> otpInputs = otpWait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                    By.xpath("//p-inputotp//input[contains(@class,'p-inputotp-input')]")
-                )
-            );
-            Assert.assertEquals(otpInputs.size(), 6, "FAILED [OTP Boxes]: Did not find 6 OTP input boxes. Found: " + otpInputs.size());
-            for (int i = 0; i < 6; i++) {
-                WebElement input = otpInputs.get(i);
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input);
-                input.click();
-                input.clear();
-                input.sendKeys(Character.toString(otp.charAt(i)));
-                Thread.sleep(100);
-            }
-            System.out.println("OTP entered successfully: " + otp);
-        } catch (Exception e) {
-            Assert.fail("FAILED [OTP Entry]: Could not enter OTP. Reason: " + e.getMessage());
+        System.out.println("Step 5: Enter OTP Inputs");
+        List<WebElement> otpInputs = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                By.xpath("//p-inputotp//input[contains(@class,'p-inputotp-input')]")));
+        Assert.assertEquals(otpInputs.size(), 6, "OTP input boxes not found.");
+
+        for (int i = 0; i < 6; i++) {
+            WebElement input = otpInputs.get(i);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input);
+            input.click();
+            input.clear();
+            input.sendKeys(Character.toString(otp.charAt(i)));
+            Thread.sleep(100);
         }
+        System.out.println("OTP entered successfully.");
     }
 
     @Test(priority = 6, dependsOnMethods = "testEnterOtpInputs")
     public void testDismissKycPopupIfPresent() {
-        System.out.println("\n========== Step 7: Handle/dismiss optional KYC popup if it appears ==========");
+        System.out.println("Step 6: Dismiss optional KYC popup");
         try {
-            WebDriverWait popupWait = new WebDriverWait(driver, Duration.ofSeconds(5));
-            WebElement cancelPopupButton = popupWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    // Edit to match actual button if necessary; fallback to original ID path:
-                    By.xpath("//*[normalize-space()=\"Skip For Now\"]")
-                )
+            WebElement skipBtn = wait.withTimeout(Duration.ofSeconds(5)).until(
+                    ExpectedConditions.elementToBeClickable(By.xpath("//*[normalize-space()='Skip For Now']"))
             );
-            cancelPopupButton.click();
-            System.out.println("KYC cancellation popup appeared and was dismissed.");
+            skipBtn.click();
+            System.out.println("KYC popup dismissed.");
         } catch (Exception e) {
-            System.out.println("No KYC cancellation popup appeared. Continuing to next step.");
+            System.out.println("No KYC popup appeared, continuing.");
         }
     }
 
+    // === Market Offer & Bid Steps ===
     @Test(priority = 7, dependsOnMethods = "testDismissKycPopupIfPresent")
     public void testNavigateToViewMarketOffer() {
-        System.out.println("\n========== Step 8: Click 'Transaction History' tab in sidebar ==========");
-        try {
-            WebDriverWait sidebarWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement transHist = sidebarWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@id=\"sidebar\"]/ul/li[3]/a")
-                )
-            );
-            transHist.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Sidebar/View Market Offer]: Could not click Transaction History tab. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 7: Navigate to View Market Offer");
+        clickElement(By.xpath("//a[contains(normalize-space(),'Transaction History') or contains(normalize-space(),'Market Offer')]"));
     }
 
     @Test(priority = 8, dependsOnMethods = "testNavigateToViewMarketOffer")
     public void testClickViewAllOffer() {
-        System.out.println("\n========== Step 9: Click 'View All Offer' button ==========");
-        try {
-            WebDriverWait allOfferBtnWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement allOfferBtn = allOfferBtnWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@class=\"btn btn-primary w-100 rounded-pill\" and contains(text(), 'View All Offer')]")
-                )
-            );
-            allOfferBtn.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [View All Offer]: Could not click 'View All Offer'. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 8: Click View All Offer");
+        clickElement(By.xpath("//button[contains(text(),'View All Offer')]"));
     }
 
     @Test(priority = 9, dependsOnMethods = "testClickViewAllOffer")
     public void testClickPlaceOfferToBuy() {
-        System.out.println("\n========== Step 10: Click 'Place Offer to Buy' ==========");
-        try {
-            WebDriverWait buyOfferBtnWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement buyOfferBtn = buyOfferBtnWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@class=\"btn btn-primary w-100 rounded-pill\" and contains(text(), 'Place Offer to Buy')]")
-                )
-            );
-            buyOfferBtn.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Place Offer To Buy]: Could not click 'Place Offer to Buy'. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 9: Click Place Offer to Buy");
+        clickElement(By.xpath("//button[contains(text(),'Place Offer to Buy')]"));
     }
 
     @Test(priority = 10, dependsOnMethods = "testClickPlaceOfferToBuy")
     public void testEnterBidPrice() {
-        System.out.println("\n========== Step 11: Enter bid price ==========");
-        try {
-            WebDriverWait bidPriceWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement bidPriceInput = bidPriceWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@id=\"integeronly\"]")
-                )
-            );
-            bidPriceInput.sendKeys("10310");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Bid Price]: Could not enter bid price. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 10: Enter Bid Price");
+        typeText(By.xpath("//*[@id='integeronly']"), bidPrice);
     }
 
     @Test(priority = 11, dependsOnMethods = "testEnterBidPrice")
     public void testClickCreateBid() {
-        System.out.println("\n========== Step 12: Click 'Create Bid' ==========");
-        try {
-            WebDriverWait createBidBtnWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement createBidBtn = createBidBtnWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("//*[@class=\"btn btn-primary rounded-pill\" and contains(text(), 'Create Bid')]")
-                )
-            );
-            createBidBtn.click();
-        } catch (Exception e) {
-            Assert.fail("FAILED [Create Bid]: Could not click 'Create Bid'. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 11: Click Create Bid");
+        clickElement(By.xpath("//button[contains(text(),'Create Bid')]"));
     }
 
     @Test(priority = 12, dependsOnMethods = "testClickCreateBid")
     public void testClickContinueButton() {
-        System.out.println("\n========== Step 13: Click Continue ==========");
-        try {
-            WebDriverWait continueBtnWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement continueBtn = continueBtnWait.until(
-                ExpectedConditions.elementToBeClickable(
-                    By.xpath("(//*[@class=\"btn btn-primary w-100 rounded-pill\" and contains(text(), ' Continue ')])[4]")
-                )
-            );
-            continueBtn.click();
-            System.out.println("Test scenario for Buyer Market Offer & Bid successful.");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Continue Button]: Could not click Continue. Reason: " + e.getMessage());
-        }
+        System.out.println("Step 12: Click Continue after Bid");
+        clickElement(By.xpath("(//button[contains(text(),'Continue')])[last()]"));
+        System.out.println("Buyer Market Offer & Bid test completed successfully.");
     }
 
+    // === TearDown ===
     @AfterClass
     public void teardown() {
         System.out.println("Test Execution Completed.");
-
         if (driver != null) {
-            try {
-                System.out.println("Logged Out Successfully!");
-            } finally {
-                driver.quit();   //
-            }
+            driver.quit();
         }
-
         if (mobileNumber != null && !mobileNumber.isEmpty()) {
             updateIsLoggedInInDB(mobileNumber);
         }
     }
 
-
     // === Utility Methods ===
-    	public static String updateIsLoggedInInDB(String mobileNumber) {
-        String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:1521/mmcmuat";
-        String user = "uatuser";
-        String password = "password@123";
-        String update = "UPDATE common.user_mstr SET is_logged_in = 0 WHERE mobile_no = ?";
-
+    private void clickElement(By locator) {
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement pstmt = conn.prepareStatement(update);
-            pstmt.setLong(1, Long.parseLong(mobileNumber));  
-            int rows = pstmt.executeUpdate();
-            if (rows > 0) {
-                System.out.println("is_logged_in reset in DB for mobile: " + mobileNumber);
-            } else {
-                System.out.println("No row updated for mobile: " + mobileNumber);
-            }
-            pstmt.close();
-            conn.close();
+            WebElement el = wait.until(ExpectedConditions.elementToBeClickable(locator));
+            el.click();
         } catch (Exception e) {
-            System.out.println("Error updating is_logged_in in DB: " + e.getMessage());
+            e.printStackTrace();
+            Assert.fail("Click failed on locator: " + locator + ", Reason: " + e.getMessage());
         }
-		return update;  
     }
-    
-    
 
-    // Utility method to read exactly 10 digits from the console
-    public static String readTenDigitsFromConsole() {
-        StringBuilder sb = new StringBuilder(10);
-        System.out.print("Please enter your 10-digit mobile number: ");
+    private void typeText(By locator, String text) {
         try {
-            while (sb.length() < 10) {
-                int ch = System.in.read();
-                if (ch == -1) break;
-                if (ch == '\r' || ch == '\n') continue;
-                char c = (char) ch;
-                if (c >= '0' && c <= '9') {
-                    sb.append(c);
-                    System.out.print(c);
-                }
-            }
-            int leftover;
-            do { leftover = System.in.read(); } while (leftover != -1 && leftover != '\n');
-        } catch (IOException e) {
-            Assert.fail("FAILED [Console Read]: Failed reading mobile from console: " + e.getMessage());
+            WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            el.clear();
+            el.sendKeys(text);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail("Type failed on locator: " + locator + ", Reason: " + e.getMessage());
         }
-        return sb.toString();
     }
 
-    // Utility method to fetch OTP by mobile number from DB
+    public static String updateIsLoggedInInDB(String mobileNumber) {
+        String sql = "UPDATE common.user_mstr SET is_logged_in = 0 WHERE mobile_no = ?";
+        String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:1521/mmcmuat";
+        try (Connection conn = DriverManager.getConnection(url, "uatuser", "password@123");
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setLong(1, Long.parseLong(mobileNumber));
+            int rows = pstmt.executeUpdate();
+            System.out.println("DB Update: is_logged_in reset for mobile " + mobileNumber + ", rows affected: " + rows);
+        } catch (Exception e) {
+            System.out.println("DB Update error: " + e.getMessage());
+        }
+        return sql;
+    }
+
     public static String fetchOtpFromDatabase(String mobileNumber) {
         String otp = null;
         String url = "jdbc:postgresql://elv-hyd-uat-cluster.cluster-ro-cxua0wsmu5p7.ap-south-1.rds.amazonaws.com:1521/mmcmuat";
-        String user = "uatuser";
-        String password = "password@123";
-        String query1 = "SELECT otp FROM common.user_mstr WHERE mobile_no = " + mobileNumber;
-        try {
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(url, user, password);
-            Statement stmt1 = conn.createStatement();
-            ResultSet rs1 = stmt1.executeQuery(query1);
-            if (rs1.next()) {
-                otp = rs1.getString("otp");
-            } else {
-                Assert.fail("FAILED [DB Query]: No user found with mobile number: " + mobileNumber);
-            }
-            rs1.close();
-            stmt1.close();
-            conn.close();
+        String sql = "SELECT otp FROM common.user_mstr WHERE mobile_no = ?";
+        try (Connection conn = DriverManager.getConnection(url, "uatuser", "password@123");
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setLong(1, Long.parseLong(mobileNumber));
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) otp = rs.getString("otp");
         } catch (Exception e) {
-            Assert.fail("FAILED [DB OTP Fetch]: DB error while fetching OTP: " + e.getMessage());
+            Assert.fail("DB OTP fetch failed: " + e.getMessage());
         }
         return otp;
     }
