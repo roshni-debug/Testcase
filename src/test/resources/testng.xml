@@ -1,8 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="AutomationSuite">
     <test name="AllTestCases">
-        <packages>
-            <package name="com.automation.TestCases"/>
-        </packages>
+        <classes>
+            <class name="TestCases.MyAccount"/>
+            <class name="TestCases.OfferCancel"/>
+            <class name="TestCases.Own_CDSell"/>
+            <class name="TestCases.Own_CDUtilize"/>
+            <class name="TestCases.View_Market_Offer"/>
+        </classes>
     </test>
 </suite>

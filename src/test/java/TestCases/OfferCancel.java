@@ -57,7 +57,7 @@ public class OfferCancel {
             prefs.put("profile.default_content_setting_values.automatic_downloads", 1);
             ChromeOptions options = new ChromeOptions();
             options.setExperimentalOption("prefs", prefs);
-
+            
             driver = new ChromeDriver(options);
             actions = new Actions(driver);
             driver.manage().window().maximize();
@@ -67,19 +67,7 @@ public class OfferCancel {
             Assert.fail("FAILED [Setup]: WebDriver failed to setup: " + e.getMessage());
         }
     }
-
     @Test(priority = 1)
-    public void testGetMobileNumberInput() {
-        System.out.println("\n========== Step 1: Get 10-digit mobile number input from console ==========");
-        try {
-            mobileNumber = readTenDigitsFromConsole();
-            Assert.assertEquals(mobileNumber.length(), 10, "FAILED [Input Error]: Mobile number entered is not 10 digits.");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Console Input]: Could not read mobile number from console. Reason: " + e.getMessage());
-        }
-    }
-
-    @Test(priority = 2, dependsOnMethods = "testGetMobileNumberInput")
     public void testOpenLoginPage() {
         System.out.println("\n========== Step 2: Navigate to the login page ==========");
         try {
@@ -90,7 +78,7 @@ public class OfferCancel {
         }
     }
 
-    @Test(priority = 3, dependsOnMethods = "testOpenLoginPage")
+    @Test(priority = 2, dependsOnMethods = "testOpenLoginPage")
     public void testClickLoginRegisterButton() {
         System.out.println("\n========== Step 3: Click Login/Register button ==========");
         try {
@@ -100,7 +88,7 @@ public class OfferCancel {
         }
     }
 
-    @Test(priority = 4, dependsOnMethods = "testClickLoginRegisterButton")
+    @Test(priority = 3, dependsOnMethods = "testClickLoginRegisterButton")
     public void testEnterMobileAndClickLogin() {
         System.out.println("\n========== Step 4: Enter mobile number and click Login ==========");
         try {
@@ -111,7 +99,7 @@ public class OfferCancel {
         }
     }
 
-    @Test(priority = 5, dependsOnMethods = "testEnterMobileAndClickLogin")
+    @Test(priority = 4, dependsOnMethods = "testEnterMobileAndClickLogin")
     public void testFetchOtpFromDB() {
         System.out.println("\n========== Step 5: Fetch OTP from database ==========");
         try {
@@ -123,7 +111,7 @@ public class OfferCancel {
         }
     }
 
-    @Test(priority = 6, dependsOnMethods = "testFetchOtpFromDB")
+    @Test(priority = 5, dependsOnMethods = "testFetchOtpFromDB")
     public void testEnterOtpInputs() throws InterruptedException {
         System.out.println("\n========== Step 6: Enter OTP into input fields ==========");
         try {
@@ -148,7 +136,7 @@ public class OfferCancel {
         }
     }
 
-    @Test(priority = 7, dependsOnMethods = "testEnterOtpInputs")
+    @Test(priority = 6, dependsOnMethods = "testEnterOtpInputs")
     public void testDismissKycPopupIfPresent() {
         System.out.println("\n========== Step 7: Handle/dismiss optional KYC popup if it appears ==========");
         try {
@@ -167,7 +155,7 @@ public class OfferCancel {
     }
 
 
-    @Test(priority = 8, dependsOnMethods = "testDismissKycPopupIfPresent")
+    @Test(priority = 7, dependsOnMethods = "testDismissKycPopupIfPresent")
     public void testMyBids() {
         System.out.println("\n========== Step 9: Click 'My Bids' button ==========");
         try {
@@ -184,7 +172,7 @@ public class OfferCancel {
         
     }
     
-        @Test(priority = 9, dependsOnMethods = "testMyBids")
+        @Test(priority = 8, dependsOnMethods = "testMyBids")
         public void testClickCancelBid() {
         	   System.out.println("\n========== Step 10: Click 'Cancel' button ==========");
         try {
@@ -200,7 +188,7 @@ public class OfferCancel {
         }
     }
     
-    @Test(priority = 10, dependsOnMethods = "testClickCancelBid")
+    @Test(priority = 9, dependsOnMethods = "testClickCancelBid")
     public void testcliconconfirmbutton() {
     	   System.out.println("\n========== Step 10: Click 'Confirm' button ==========");
            try {

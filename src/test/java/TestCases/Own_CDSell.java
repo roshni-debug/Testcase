@@ -58,20 +58,6 @@ public class Own_CDSell {
     }
 
     @Test(priority = 1)
-    public void testGetMobileNumberInput() {
-        System.out.println("\n========== Step 1: Get 10-digit mobile number input from console ==========");
-        // Why might this test fail?
-        // - User may not provide exactly 10 digits.
-        // - IOException or input mismatch occurs.
-        try {
-            mobileNumber = readTenDigitsFromConsole();
-            Assert.assertEquals(mobileNumber.length(), 10, "FAILED [Input Error]: Mobile number entered is not 10 digits.");
-        } catch (Exception e) {
-            Assert.fail("FAILED [Console Input]: Could not read mobile number from console. Reason: " + e.getMessage());
-        }
-    }
-
-    @Test(priority = 2, dependsOnMethods = "testGetMobileNumberInput")
     public void testOpenLoginPage() {
         System.out.println("\n========== Step 2: Navigate to the login page ==========");
         // Why might this test fail?
@@ -84,7 +70,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 3, dependsOnMethods = "testOpenLoginPage")
+    @Test(priority = 2, dependsOnMethods = "testOpenLoginPage")
     public void testClickLoginRegisterButton() {
         System.out.println("\n========== Step 3: Click Login/Register button ==========");
         // Why might this test fail?
@@ -97,7 +83,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 4, dependsOnMethods = "testClickLoginRegisterButton")
+    @Test(priority = 3, dependsOnMethods = "testClickLoginRegisterButton")
     public void testEnterMobileAndClickLogin() {
         System.out.println("\n========== Step 4: Enter mobile number and click Login ==========");
         // Why might this test fail?
@@ -110,7 +96,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 5, dependsOnMethods = "testEnterMobileAndClickLogin")
+    @Test(priority = 4, dependsOnMethods = "testEnterMobileAndClickLogin")
     public void testFetchOtpFromDB() {
         System.out.println("\n========== Step 5: Fetch OTP from database ==========");
         // Why might this test fail?
@@ -124,7 +110,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 6, dependsOnMethods = "testFetchOtpFromDB")
+    @Test(priority = 5, dependsOnMethods = "testFetchOtpFromDB")
     public void testEnterOtpInputs() throws InterruptedException {
         System.out.println("\n========== Step 6: Enter OTP into input fields ==========");
         // Why might this test fail?
@@ -152,7 +138,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 7, dependsOnMethods = "testEnterOtpInputs")
+    @Test(priority = 6, dependsOnMethods = "testEnterOtpInputs")
     public void testDismissKycPopupIfPresent() {
         System.out.println("\n========== Step 7: Handle/dismiss optional KYC popup if it appears ==========");
         // Why might this test fail?
@@ -172,7 +158,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 8, dependsOnMethods = "testDismissKycPopupIfPresent")
+    @Test(priority = 7, dependsOnMethods = "testDismissKycPopupIfPresent")
     public void testNavigateToListOfCDs() {
         System.out.println("\n========== Step 8: Click 'List of CDs' from the sidebar ==========");
         // Why might this test fail?
@@ -188,7 +174,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 9, dependsOnMethods = "testNavigateToListOfCDs")
+    @Test(priority = 8, dependsOnMethods = "testNavigateToListOfCDs")
     public void testClickSellButton() {
         System.out.println("\n========== Step 9: Click Sell button ==========");
         // Why might this test fail?
@@ -204,7 +190,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 10, dependsOnMethods = "testClickSellButton")
+    @Test(priority = 9, dependsOnMethods = "testClickSellButton")
     public void testEnterOfferPrice() {
         System.out.println("\n========== Step 10: Enter Offer Price ==========");
         // Why might this test fail?
@@ -220,7 +206,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 11, dependsOnMethods = "testEnterOfferPrice")
+    @Test(priority = 10, dependsOnMethods = "testEnterOfferPrice")
     public void testClickCreateOffer() {
         System.out.println("\n========== Step 11: Click Create Offer ==========");
         // Why might this test fail?
@@ -236,7 +222,7 @@ public class Own_CDSell {
         }
     }
 
-    @Test(priority = 12, dependsOnMethods = "testClickCreateOffer")
+    @Test(priority = 11, dependsOnMethods = "testClickCreateOffer")
     public void testClickContinueButton() {
         System.out.println("\n========== Step 12: Click Final Continue ==========");
         // Why might this test fail?
@@ -297,30 +283,6 @@ public class Own_CDSell {
 		return update;  
     }
     
-
-    // Utility method to read 10 digits from console
-    public static String readTenDigitsFromConsole() {
-        StringBuilder sb = new StringBuilder(10);
-        System.out.print("Please enter your 10-digit mobile number: ");
-        try {
-            while (sb.length() < 10) {
-                int ch = System.in.read();
-                if (ch == -1) break;
-                if (ch == '\r' || ch == '\n') continue;
-                char c = (char) ch;
-                if (c >= '0' && c <= '9') {
-                    sb.append(c);
-                    System.out.print(c);
-                }
-            }
-            int leftover;
-            do { leftover = System.in.read(); } while (leftover != -1 && leftover != '\n');
-        } catch (IOException e) {
-            Assert.fail("FAILED [Console Read]: Failed reading mobile from console: " + e.getMessage());
-        }
-        return sb.toString();
-    }
-
     // Utility method to fetch OTP by mobile
     public static String fetchOtpFromDatabase(String mobileNumber) {
         String otp = null;

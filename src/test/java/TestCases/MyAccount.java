@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
@@ -23,7 +24,7 @@ public class MyAccount {
     Actions actions;
     Scanner scanner;
 
-    String mobileNumber = "9005009595";
+    String mobileNumber = "9000000105";
     String accountNo = "1234567890123456";
     String ifscCode = "HDFC0009226";
     String filePath = "C:\\Users\\roshn\\Documents\\Pictures\\Pan-Card-Dummy.png";
@@ -35,9 +36,13 @@ public class MyAccount {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         actions = new Actions(driver);
-        scanner = new Scanner(System.in);
-
         driver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        driver = new ChromeDriver(options);
+
     }
 
     // ================= TEST CASE 1 =================

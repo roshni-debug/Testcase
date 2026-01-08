@@ -50,7 +50,7 @@
 
     </dependencies>
 
-    <build>
+   <build>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -58,12 +58,12 @@
             <version>3.1.2</version>
             <configuration>
                 <suiteXmlFiles>
-                    <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                 </suiteXmlFiles>
             </configuration>
         </plugin>
     </plugins>
-</build>
+    </build>
 
 
 </project>
