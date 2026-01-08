@@ -1,11 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="AutomationSuite">
-    <test name="RegressionTests">
+    <test name="AllTestCases">
         <packages>
-            <package name="com.automation.Buyer_MenuTabs"/>
-            <package name="com.automation.CDRegisteration"/>
-            <package name="com.automation.Seller_MenuTabs"/>
-            <package name="com.automation.UserRegistration"/>
+            <package name="com.automation.TestCases"/>
         </packages>
     </test>
 </suite>

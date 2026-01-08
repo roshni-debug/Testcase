@@ -1,79 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="12" passed="11" failed="1" skipped="0">
+<testng-results ignored="0" total="5" passed="3" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-06T14:17:58 IST" name="Default suite" finished-at="2026-01-06T14:18:37 IST" duration-ms="38584">
+  <suite started-at="2026-01-06T15:27:39 IST" name="Default suite" finished-at="2026-01-06T15:28:32 IST" duration-ms="52761">
     <groups>
     </groups>
-    <test started-at="2026-01-06T14:17:58 IST" name="Default test" finished-at="2026-01-06T14:18:37 IST" duration-ms="38584">
-      <class name="TestCases.View_Market_Offer">
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:17:58 IST" name="setup" finished-at="2026-01-06T14:18:02 IST" duration-ms="3608" status="PASS">
+    <test started-at="2026-01-06T15:27:39 IST" name="Default test" finished-at="2026-01-06T15:28:32 IST" duration-ms="52761">
+      <class name="TestCases.MyAccount">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:40 IST" name="setup" finished-at="2026-01-06T15:27:44 IST" duration-ms="4029" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testOpenLoginPage()[pri:1, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:02 IST" name="testOpenLoginPage" finished-at="2026-01-06T14:18:05 IST" duration-ms="3332" status="PASS">
+        <test-method signature="TC_01_Login_With_Mobile_And_OTP()[pri:1, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:44 IST" name="TC_01_Login_With_Mobile_And_OTP" finished-at="2026-01-06T15:27:54 IST" duration-ms="9887" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testOpenLoginPage -->
-        <test-method signature="testClickLoginRegisterButton()[pri:2, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:05 IST" name="testClickLoginRegisterButton" finished-at="2026-01-06T14:18:06 IST" depends-on-methods="TestCases.View_Market_Offer.testOpenLoginPage" duration-ms="546" status="PASS">
+        </test-method> <!-- TC_01_Login_With_Mobile_And_OTP -->
+        <test-method signature="TC_02_Skip_KYC_Popup()[pri:2, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:54 IST" name="TC_02_Skip_KYC_Popup" finished-at="2026-01-06T15:27:59 IST" duration-ms="5552" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testClickLoginRegisterButton -->
-        <test-method signature="testEnterMobileAndClickLogin()[pri:3, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:06 IST" name="testEnterMobileAndClickLogin" finished-at="2026-01-06T14:18:07 IST" depends-on-methods="TestCases.View_Market_Offer.testClickLoginRegisterButton" duration-ms="1267" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEnterMobileAndClickLogin -->
-        <test-method signature="testFetchOtpFromDB()[pri:4, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:07 IST" name="testFetchOtpFromDB" finished-at="2026-01-06T14:18:09 IST" depends-on-methods="TestCases.View_Market_Offer.testEnterMobileAndClickLogin" duration-ms="2346" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFetchOtpFromDB -->
-        <test-method signature="testEnterOtpInputs()[pri:5, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:09 IST" name="testEnterOtpInputs" finished-at="2026-01-06T14:18:15 IST" depends-on-methods="TestCases.View_Market_Offer.testFetchOtpFromDB" duration-ms="5570" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEnterOtpInputs -->
-        <test-method signature="testDismissKycPopupIfPresent()[pri:6, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:15 IST" name="testDismissKycPopupIfPresent" finished-at="2026-01-06T14:18:20 IST" depends-on-methods="TestCases.View_Market_Offer.testEnterOtpInputs" duration-ms="5084" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testDismissKycPopupIfPresent -->
-        <test-method signature="testNavigateToViewMarketOffer()[pri:7, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:20 IST" name="testNavigateToViewMarketOffer" finished-at="2026-01-06T14:18:21 IST" depends-on-methods="TestCases.View_Market_Offer.testDismissKycPopupIfPresent" duration-ms="587" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testNavigateToViewMarketOffer -->
-        <test-method signature="testClickViewAllOffer()[pri:8, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:21 IST" name="testClickViewAllOffer" finished-at="2026-01-06T14:18:22 IST" depends-on-methods="TestCases.View_Market_Offer.testNavigateToViewMarketOffer" duration-ms="1460" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testClickViewAllOffer -->
-        <test-method signature="testClickPlaceOfferToBuy()[pri:9, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:22 IST" name="testClickPlaceOfferToBuy" finished-at="2026-01-06T14:18:23 IST" depends-on-methods="TestCases.View_Market_Offer.testClickViewAllOffer" duration-ms="1391" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testClickPlaceOfferToBuy -->
-        <test-method signature="testEnterBidPrice()[pri:10, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:24 IST" name="testEnterBidPrice" finished-at="2026-01-06T14:18:25 IST" depends-on-methods="TestCases.View_Market_Offer.testClickPlaceOfferToBuy" duration-ms="993" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testEnterBidPrice -->
-        <test-method signature="testClickCreateBid()[pri:11, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:25 IST" name="testClickCreateBid" finished-at="2026-01-06T14:18:25 IST" depends-on-methods="TestCases.View_Market_Offer.testEnterBidPrice" duration-ms="746" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testClickCreateBid -->
-        <test-method signature="testClickContinueButton()[pri:12, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:25 IST" name="testClickContinueButton" finished-at="2026-01-06T14:18:36 IST" depends-on-methods="TestCases.View_Market_Offer.testClickCreateBid" duration-ms="10551" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        </test-method> <!-- TC_02_Skip_KYC_Popup -->
+        <test-method signature="TC_03_Add_Bank_Details()[pri:3, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:59 IST" name="TC_03_Add_Bank_Details" finished-at="2026-01-06T15:28:01 IST" duration-ms="1676" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[FAILED [Continue Button]: Could not click Continue. Reason: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[@class="btn btn-primary w-100 rounded-pill" and contains(text(), ' Continue ')])[4] (tried for 10 second(s) with 500 milliseconds interval)
+              <![CDATA[element click intercepted: Element is not clickable at point (1201, 765)
+  (Session info: chrome=143.0.7499.170)
 Build info: version: '4.23.0', revision: '4df0a231af'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61236}, goog:processID: 1832, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61236/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2b1ff69377de66394588441c74b15c1d]]>
+Command: [971df5d988a2aae5cf4c9f2824cede60, clickElement {id=f.3BEE81D40D38FF386EA30A67E6CA59B9.d.E8A2F7ABE38BA973C1CD8B5093546AF3.e.108}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51177}, goog:processID: 6868, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51177/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (971df5d988a2aae5cf4c9f2824cede60)] -> xpath: //p-dropdown[@formcontrolname='account_type']//div[@class='p-dropdown-trigger']]
+Session ID: 971df5d988a2aae5cf4c9f2824cede60]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: FAILED [Continue Button]: Could not click Continue. Reason: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[@class="btn btn-primary w-100 rounded-pill" and contains(text(), ' Continue ')])[4] (tried for 10 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1201, 765)
+  (Session info: chrome=143.0.7499.170)
 Build info: version: '4.23.0', revision: '4df0a231af'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61236}, goog:processID: 1832, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61236/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2b1ff69377de66394588441c74b15c1d
-at org.testng.Assert.fail(Assert.java:111)
-at TestCases.View_Market_Offer.testClickContinueButton(View_Market_Offer.java:255)
+Command: [971df5d988a2aae5cf4c9f2824cede60, clickElement {id=f.3BEE81D40D38FF386EA30A67E6CA59B9.d.E8A2F7ABE38BA973C1CD8B5093546AF3.e.108}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51177}, goog:processID: 6868, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51177/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (971df5d988a2aae5cf4c9f2824cede60)] -> xpath: //p-dropdown[@formcontrolname='account_type']//div[@class='p-dropdown-trigger']]
+Session ID: 971df5d988a2aae5cf4c9f2824cede60
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at TestCases.MyAccount.TC_03_Add_Bank_Details(MyAccount.java:86)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -102,15 +83,89 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testClickContinueButton -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCases.View_Market_Offer@3bd82cf5]" started-at="2026-01-06T14:18:36 IST" name="teardown" finished-at="2026-01-06T14:18:37 IST" duration-ms="668" status="PASS">
+        </test-method> <!-- TC_03_Add_Bank_Details -->
+        <test-method signature="TC_04_Upload_Document()[pri:4, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:28:01 IST" name="TC_04_Upload_Document" finished-at="2026-01-06T15:28:31 IST" duration-ms="30368" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at TestCases.MyAccount.uploadFile(MyAccount.java:165)
+at TestCases.MyAccount.TC_04_Upload_Document(MyAccount.java:102)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input"}
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [971df5d988a2aae5cf4c9f2824cede60, findElement {using=xpath, value=//*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51177}, goog:processID: 6868, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51177/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 971df5d988a2aae5cf4c9f2824cede60
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:357)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:351)
+at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
+at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 28 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- TestCases.View_Market_Offer -->
+        </test-method> <!-- TC_04_Upload_Document -->
+        <test-method signature="TC_05_Submit_Bank_Details()[pri:5, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:28:31 IST" name="TC_05_Submit_Bank_Details" finished-at="2026-01-06T15:28:32 IST" duration-ms="317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_05_Submit_Bank_Details -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:28:32 IST" name="tearDown" finished-at="2026-01-06T15:28:32 IST" duration-ms="503" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- TestCases.MyAccount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

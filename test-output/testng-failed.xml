@@ -3,24 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCases.View_Market_Offer">
+      <class name="TestCases.MyAccount">
         <methods>
-          <include name="testOpenLoginPage"/>
-          <include name="testDismissKycPopupIfPresent"/>
-          <include name="testEnterOtpInputs"/>
-          <include name="testClickCreateBid"/>
-          <include name="testClickLoginRegisterButton"/>
-          <include name="testClickPlaceOfferToBuy"/>
-          <include name="testClickViewAllOffer"/>
-          <include name="testEnterMobileAndClickLogin"/>
-          <include name="testNavigateToViewMarketOffer"/>
-          <include name="testFetchOtpFromDB"/>
-          <include name="testEnterBidPrice"/>
+          <include name="tearDown"/>
           <include name="setup"/>
-          <include name="testClickContinueButton"/>
-          <include name="teardown"/>
+          <include name="TC_04_Upload_Document"/>
+          <include name="TC_03_Add_Bank_Details"/>
         </methods>
-      </class> <!-- TestCases.View_Market_Offer -->
+      </class> <!-- TestCases.MyAccount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
