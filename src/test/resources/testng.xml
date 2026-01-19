@@ -4,8 +4,8 @@
         <classes>
             <class name="TestCases.MyAccount"/>
             <class name="TestCases.OfferCancel"/>
-            <class name="TestCases.Own_CDSell"/>
-            <class name="TestCases.Own_CDUtilize"/>
+            <class name="TestCases.OwnCDSell"/>
+            <class name="TestCases.OwnCDUtilize"/>
             <class name="TestCases.View_Market_Offer"/>
         </classes>
     </test>
