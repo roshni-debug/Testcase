@@ -6,9 +6,11 @@
       <class name="TestCases.MyAccount">
         <methods>
           <include name="tearDown"/>
+          <include name="TC_01_Login_With_Mobile_And_OTP"/>
           <include name="setup"/>
           <include name="TC_04_Upload_Document"/>
           <include name="TC_03_Add_Bank_Details"/>
+          <include name="TC_05_Submit_Bank_Details"/>
         </methods>
       </class> <!-- TestCases.MyAccount -->
     </classes>

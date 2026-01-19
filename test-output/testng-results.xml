@@ -1,60 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="3" failed="2" skipped="0">
+<testng-results ignored="0" total="5" passed="1" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-06T15:27:39 IST" name="Default suite" finished-at="2026-01-06T15:28:32 IST" duration-ms="52761">
+  <suite started-at="2026-01-08T17:09:55 IST" name="Default suite" finished-at="2026-01-08T17:11:51 IST" duration-ms="115595">
     <groups>
     </groups>
-    <test started-at="2026-01-06T15:27:39 IST" name="Default test" finished-at="2026-01-06T15:28:32 IST" duration-ms="52761">
+    <test started-at="2026-01-08T17:09:55 IST" name="Default test" finished-at="2026-01-08T17:11:51 IST" duration-ms="115595">
       <class name="TestCases.MyAccount">
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:40 IST" name="setup" finished-at="2026-01-06T15:27:44 IST" duration-ms="4029" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:09:55 IST" name="setup" finished-at="2026-01-08T17:09:58 IST" duration-ms="3152" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="TC_01_Login_With_Mobile_And_OTP()[pri:1, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:44 IST" name="TC_01_Login_With_Mobile_And_OTP" finished-at="2026-01-06T15:27:54 IST" duration-ms="9887" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_01_Login_With_Mobile_And_OTP -->
-        <test-method signature="TC_02_Skip_KYC_Popup()[pri:2, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:54 IST" name="TC_02_Skip_KYC_Popup" finished-at="2026-01-06T15:27:59 IST" duration-ms="5552" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_02_Skip_KYC_Popup -->
-        <test-method signature="TC_03_Add_Bank_Details()[pri:3, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:27:59 IST" name="TC_03_Add_Bank_Details" finished-at="2026-01-06T15:28:01 IST" duration-ms="1676" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method signature="TC_01_Login_With_Mobile_And_OTP()[pri:1, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:09:58 IST" name="TC_01_Login_With_Mobile_And_OTP" finished-at="2026-01-08T17:10:13 IST" duration-ms="14997" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[element click intercepted: Element is not clickable at point (1201, 765)
-  (Session info: chrome=143.0.7499.170)
-Build info: version: '4.23.0', revision: '4df0a231af'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [971df5d988a2aae5cf4c9f2824cede60, clickElement {id=f.3BEE81D40D38FF386EA30A67E6CA59B9.d.E8A2F7ABE38BA973C1CD8B5093546AF3.e.108}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51177}, goog:processID: 6868, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51177/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (971df5d988a2aae5cf4c9f2824cede60)] -> xpath: //p-dropdown[@formcontrolname='account_type']//div[@class='p-dropdown-trigger']]
-Session ID: 971df5d988a2aae5cf4c9f2824cede60]]>
+              <![CDATA[❌ OTP should not be null expected object to not be null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1201, 765)
-  (Session info: chrome=143.0.7499.170)
-Build info: version: '4.23.0', revision: '4df0a231af'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [971df5d988a2aae5cf4c9f2824cede60, clickElement {id=f.3BEE81D40D38FF386EA30A67E6CA59B9.d.E8A2F7ABE38BA973C1CD8B5093546AF3.e.108}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51177}, goog:processID: 6868, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51177/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (971df5d988a2aae5cf4c9f2824cede60)] -> xpath: //p-dropdown[@formcontrolname='account_type']//div[@class='p-dropdown-trigger']]
-Session ID: 971df5d988a2aae5cf4c9f2824cede60
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at TestCases.MyAccount.TC_03_Add_Bank_Details(MyAccount.java:86)
+              <![CDATA[java.lang.AssertionError: ❌ OTP should not be null expected object to not be null
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.assertNotNull(Assert.java:1496)
+at TestCases.MyAccount.TC_01_Login_With_Mobile_And_OTP(MyAccount.java:61)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -83,11 +49,67 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_01_Login_With_Mobile_And_OTP -->
+        <test-method signature="TC_02_Skip_KYC_Popup()[pri:2, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:10:13 IST" name="TC_02_Skip_KYC_Popup" finished-at="2026-01-08T17:10:19 IST" duration-ms="5447" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02_Skip_KYC_Popup -->
+        <test-method signature="TC_03_Add_Bank_Details()[pri:3, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:10:19 IST" name="TC_03_Add_Bank_Details" finished-at="2026-01-08T17:10:49 IST" duration-ms="30397" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //p-dropdown[@formcontrolname='account_type']//div[@class='p-dropdown-trigger'] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62818}, goog:processID: 34300, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62818/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f2f24581b822663ae27eeb5ff82f033c]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //p-dropdown[@formcontrolname='account_type']//div[@class='p-dropdown-trigger'] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62818}, goog:processID: 34300, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62818/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f2f24581b822663ae27eeb5ff82f033c
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at TestCases.MyAccount.TC_03_Add_Bank_Details(MyAccount.java:92)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_03_Add_Bank_Details -->
-        <test-method signature="TC_04_Upload_Document()[pri:4, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:28:01 IST" name="TC_04_Upload_Document" finished-at="2026-01-06T15:28:31 IST" duration-ms="30368" status="FAIL">
+        <test-method signature="TC_04_Upload_Document()[pri:4, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:10:49 IST" name="TC_04_Upload_Document" finished-at="2026-01-08T17:11:20 IST" duration-ms="30540" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
               <![CDATA[Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input (tried for 30 second(s) with 500 milliseconds interval)]]>
@@ -96,8 +118,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
               <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input (tried for 30 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at TestCases.MyAccount.uploadFile(MyAccount.java:165)
-at TestCases.MyAccount.TC_04_Upload_Document(MyAccount.java:102)
+at TestCases.MyAccount.TC_04_Upload_Document(MyAccount.java:115)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -130,9 +151,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: '4.23.0', revision: '4df0a231af'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [971df5d988a2aae5cf4c9f2824cede60, findElement {using=xpath, value=//*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51177}, goog:processID: 6868, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51177/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 971df5d988a2aae5cf4c9f2824cede60
+Command: [f2f24581b822663ae27eeb5ff82f033c, findElement {value=//*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[8]/div/input, using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62818}, goog:processID: 34300, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62818/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f2f24581b822663ae27eeb5ff82f033c
 at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -150,18 +171,66 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
 at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-... 28 more
+... 27 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_04_Upload_Document -->
-        <test-method signature="TC_05_Submit_Bank_Details()[pri:5, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:28:31 IST" name="TC_05_Submit_Bank_Details" finished-at="2026-01-06T15:28:32 IST" duration-ms="317" status="PASS">
+        <test-method signature="TC_05_Submit_Bank_Details()[pri:5, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:11:20 IST" name="TC_05_Submit_Bank_Details" finished-at="2026-01-08T17:11:50 IST" duration-ms="30148" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[9]/button (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62818}, goog:processID: 34300, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62818/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f2f24581b822663ae27eeb5ff82f033c]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id='content']/main/app-user-profile/div/div/div[2]/div/div/form/div[3]/div/div[9]/button (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\roshn\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62818}, goog:processID: 34300, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62818/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f2f24581b822663ae27eeb5ff82f033c
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at TestCases.MyAccount.TC_05_Submit_Bank_Details(MyAccount.java:128)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_05_Submit_Bank_Details -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.MyAccount@8297b3a]" started-at="2026-01-06T15:28:32 IST" name="tearDown" finished-at="2026-01-06T15:28:32 IST" duration-ms="503" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.MyAccount@6ad82709]" started-at="2026-01-08T17:11:50 IST" name="tearDown" finished-at="2026-01-08T17:11:51 IST" duration-ms="820" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

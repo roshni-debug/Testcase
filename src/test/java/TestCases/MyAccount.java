@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
@@ -36,12 +35,9 @@ public class MyAccount {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         actions = new Actions(driver);
+        scanner = new Scanner(System.in);
+
         driver.manage().window().maximize();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
 
     }
 
@@ -125,24 +121,6 @@ public class MyAccount {
     }
 
     // ================= UTILITY METHODS =================
-
-    public static String readTenDigitsFromConsole() {
-        StringBuilder sb = new StringBuilder(10);
-        System.out.print("Enter 10-digit mobile number: ");
-        try {
-            while (sb.length() < 10) {
-                int ch = System.in.read();
-                if (ch >= '0' && ch <= '9') {
-                    sb.append((char) ch);
-                    System.out.print((char) ch);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return sb.toString();
-    }
-
     public static String fetchOtpFromDatabase(String mobileNumber) {
         String otp = null;
         try {
